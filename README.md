@@ -6,10 +6,11 @@
 
 \### Team Members:
 
-\- DevOps Engineer: \[Mohammed Yahiaoui Mourad]
+Mohammed Yahiaoui Mourad
 
-\- Frontend Developer: \[Brahimi Mohammed Yacine]
+Brahimi Mohammed Yacine
 
+EL Fodda amr Khaled
 
 
 \### Project Structure:
