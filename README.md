@@ -18,7 +18,8 @@ EL Fodda amr Khaled
 \- index.html - Website main page
 
 \- style.css - Website styles
-
+\- header.html -Website header
+\- footer.html -Website footer
 \- Dockerfile - Container configuration
 
 \- .github/workflows/deploy.yml - CI/CD Pipeline
