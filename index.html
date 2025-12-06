@@ -1,15 +1,41 @@
+<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DevOps</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <h1>
-        DevOps Mini Projet
-    </h1>
-    <p>Site Avec CI/CD</p>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <title>Paleovalley Landing Page</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- Headeeeeeer -->
+    <div id="header-placeholder"></div>
+
+    <!-- l Contenu t3 la page..... -->
+    <main class="page-main">
+      <div class="container hero-placeholder">
+        <h1>Hero section will be here</h1>
+        <p>Later we will design it like the green product landing page.</p>
+      </div>
+    </main>
+
+    <!-- Hnaya l footer -->
+    <div id="footer-placeholder"></div>
+
+    <!-- script bach n instalo  header.html  footer.html fl main-->
+    <script>
+      // installer l header
+      fetch("header.html")
+        .then((res) => res.text())
+        .then((html) => {
+          document.getElementById("header-placeholder").innerHTML = html;
+        });
+
+      //  instaler l footer
+      fetch("footer.html")
+        .then((res) => res.text())
+        .then((html) => {
+          document.getElementById("footer-placeholder").innerHTML = html;
+        });
+    </script>
+  </body>
 </html>
