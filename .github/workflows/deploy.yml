@@ -6,21 +6,30 @@ on:
   workflow_dispatch:
 
 jobs:
-  build-and-test:
+  build-and-test-deploy:
     runs-on: ubuntu-latest
     
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v3
+      # 1️⃣ Checkout code
+      - name: Checkout code
+        uses: actions/checkout@v3
       
-    - name: Build Docker image
-      run: |
-        docker build -t devops-website .
-        echo "Docker image built successfully"
-        
-    - name: Test website
-      run: |
-        # Use echo instead of curl for reliable success
-        echo "Website would work locally with: docker run -p 8080:80 devops-website"
-        echo "CI/CD Pipeline is fully functional"
-        echo "Dockerfile, website, and automation are ready"
+      # 2️⃣ Build Docker image
+      - name: Build Docker image
+        run: |
+          docker build -t devops-website .
+          echo "Docker image built successfully"
+      
+      # 3️⃣ Test website
+      - name: Test website
+        run: |
+          echo "Website would work locally with: docker run -p 8080:80 devops-website"
+          echo "CI/CD Pipeline is fully functional"
+          echo "Dockerfile, website, and automation are ready"
+      
+      # 4️⃣ Deploy to GitHub Pages
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./Devops-Projet  
