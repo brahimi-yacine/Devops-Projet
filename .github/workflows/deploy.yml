@@ -2,8 +2,11 @@ name: DevOps Project CI/CD
 
 on:
   push:
-    branches: [ master ]
+    branches: [ master ]   
   workflow_dispatch:
+
+permissions:
+  contents: write   
 
 jobs:
   build-and-test-deploy:
@@ -32,5 +35,5 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./
+          publish_dir: ./public      # حط فيها ملفات الموقع
           publish_branch: gh-pages
