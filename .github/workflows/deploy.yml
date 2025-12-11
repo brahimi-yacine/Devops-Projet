@@ -10,17 +10,17 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-      # Checkout code
+      #  Checkout code
       - name: Checkout code
         uses: actions/checkout@v3
       
-      # Build Docker image
+      #  Build Docker image
       - name: Build Docker image
         run: |
           docker build -t devops-website .
           echo "Docker image built successfully"
       
-      # Test website
+      #  Test website
       - name: Test website
         run: |
           echo "Website would work locally with: docker run -p 8080:80 devops-website"
@@ -32,5 +32,5 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./Devops-Projet
+          publish_dir: ./
           publish_branch: gh-pages
