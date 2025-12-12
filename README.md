@@ -39,9 +39,23 @@ git push -u origin main
 
 2. Développement du site statique
 
-Nous avons créé une page HTML  avec des éléments de base : titre, texte, boutons et images .
+Développement du site
 
-Nous avons ajouté du CSS pour styliser la page.
+Nous avons développé le site web en utilisant les fichiers et dossiers suivants :
+
+index.html : page principale du site avec le contenu de base (titre, texte, boutons, images).
+
+style.css : feuille de style pour styliser le site et gérer l’apparence des éléments.
+
+header.html : section réutilisable pour l’en-tête du site.
+
+footer.html : section réutilisable pour le pied de page (Footer) du site.
+
+assets/plants/ : dossier contenant toutes les images (les plantes) utilisées sur le site.
+
+
+Cette organisation permet un site bien structuré, facile à maintenir et à modifier.
+
 
 
 ---
@@ -60,7 +74,7 @@ Ouvrir le port approprié (80).
 
 Commandes Docker pour tester localement :
 
- docker build -t devops-website .
+ docker build -t devops-website .                    //devops-website est le nom de notre image docker
  docker run -p 8080:80 devops-website
 
 Ainsi, nous avons vérifié que le site fonctionne correctement dans le conteneur avant le déploiement.
@@ -102,12 +116,15 @@ C’est la phase Deploy.
 
 Elle publie automatiquement le site sur GitHub Pages.
 
-
+]
 
 
 les captures de action est dans screenshote/
 
-les captures de GitHub Pages est dans screenshote/
+les captures de Logs est dans screenshote/
+
+
+pour tester  GitHub Pages entrer dans  https://brahimi-yacine.github.io/Devops-Projet/
 ---------------------------------------------------------------------------------------------------------------------
 ----------------------------------------------------------------------------------------------------------------
 -Difficultés rencontrées et solutions apportées
@@ -124,11 +141,14 @@ Solution : Nous avons changé le dépôt en public pour permettre le déploiemen
 
 2️ Branche Main vs Master
 
-Problème : La branche principale de Git était Main alors que certains fichiers ou scripts attendaient Master, ce qui causait des conflits pour le déploiement.
+Problème :
+Le workflow GitHub Actions était configuré pour la branche main, mais le dépôt utilise master comme branche principale.
+Cela causait des erreurs lors des push et empêchait le pipeline de se déclencher correctement.
 
-Solution : Nous avons harmonisé les branches et utilisé Main comme branche principale pour toutes les étapes du workflow.
+Solution :
+Nous avons modifié le fichier workflow .github/workflows/deploy.yml pour utiliser master comme branche principale :
 
-
+screenshote/
 
 ---
 
@@ -144,9 +164,9 @@ Solution : Nous avons créé la branche gh-pages et configuré correctement le w
 
 4️ Token GitHub pour Deploy
 
-Problème : Lors du déploiement avec GitHub Actions, l’étape Deploy to GitHub Pages échouait (Erreur) car l’utilisateur n’avait pas de token valide.
+Problème : Lors du déploiement avec GitHub Actions, l’étape Deploy to GitHub Pages échouait (Erreur) car Mohamed Yahiaoui Mourad n’avait pas de token valide.
 
-Solution : Mohamed Yahiaoui Mourad a contacté l’administrateur Yassine, qui a généré un Personal Access Token avec les droits nécessaires pour le déploiement.
+Solution : Mohamed Yahiaoui Mourad a contacté l’admin brahimi mohammed yacine, qui a généré un Personal Access Token avec les droits nécessaires pour le déploiement.
 
 Après avoir configuré le token dans secrets de GitHub, le déploiement a fonctionné correctement.
 
@@ -155,39 +175,18 @@ Après avoir configuré le token dans secrets de GitHub, le déploiement a fonct
 
 \### Team Members:
 
-Mohammed Yahiaoui Mourad
+docker + ci/cd :Mohammed Yahiaoui Mourad
 
-Brahimi Mohammed Yacine
+admin + devlopement de site : Brahimi Mohammed Yacine
 
-EL Fodda amr Khaled
-
-
-\### Project Structure:
-
-\- index.html - Website main page
-
-\- style.css - Website styles
-\- header.html -Website header
-\- footer.html -Website footer
-\- Dockerfile - Container configuration
-
-\- .github/workflows/deploy.yml - CI/CD Pipeline
+gitlab : EL Fodda amr Khaled
 
 
 
-\### How to Run:
-
-`bash
-
-\# Build Docker image
-
-docker build -t website .
 
 
 
-\# Run the website
 
-docker run -p 8080:80 website
 
 
 ----------------------------------------------------------------------------------------------------
