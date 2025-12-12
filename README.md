@@ -15,7 +15,7 @@ Nous avons organisé le dépôt de manière structurée.
 
 
 Commandes Git utilisées :
-# 1. Initialiser un dépôt Git local
+# 1 initialisation un dépôt Git local
 git init
 
 # 2. Ajouter tous les fichiers au suivi de Git
@@ -117,9 +117,9 @@ Elle publie automatiquement le site sur GitHub Pages.
 ]
 
 
-les captures de action est dans screenshote/
+//////////les captures de action est dans screenshote/
 
-les captures de Logs est dans screenshote/
+////////////les captures de Logs est dans screenshote/
 
 
 pour tester  GitHub Pages entrer dans  https://brahimi-yacine.github.io/Devops-Projet/
@@ -146,7 +146,7 @@ Cela causait des erreurs lors des push et empêchait le pipeline de se déclench
 Solution :
 Nous avons modifié le fichier workflow .github/workflows/deploy.yml pour utiliser master comme branche principale :
 
-screenshote/
+////////////screenshote/
 
 ---
 
@@ -162,12 +162,22 @@ Solution : Nous avons créé la branche gh-pages et configuré correctement le w
 
 4️ Token GitHub pour Deploy
 
-Problème : Lors du déploiement avec GitHub Actions, l’étape Deploy to GitHub Pages échouait (Erreur) car Mohamed Yahiaoui Mourad n’avait pas de token valide.
+Problème avec le déploiement sur GitHub Pages
 
-Solution : Mohamed Yahiaoui Mourad a contacté l’admin brahimi mohammed yacine, qui a généré un Personal Access Token avec les droits nécessaires pour le déploiement.
+Erreur rencontrée :
+Lors de la tentative de déploiement du site, le workflow CI/CD affichait une erreur (signalée en rouge) et le site n’était pas publié sur GitHub Pages.
+Le problème venait du fait que les permissions d’écriture et le branche de publication n’étaient pas définis.
 
-Après avoir configuré le token dans secrets de GitHub, le déploiement a fonctionné correctement.
+Solution apportée :
+Lors de l’ajout de la fonctionnalité GitHub Pages, nous avons modifié le fichier workflow en ajoutant :
 
+permissions:
+  contents: write
+publish_branch: gh-pages
+
+Après cette modification, le pipeline CI/CD a affiché un succès (signalé en vert) 
+
+////////////screenshote/
 
 
 
