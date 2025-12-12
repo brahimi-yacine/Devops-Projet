@@ -77,9 +77,11 @@ Commandes Docker pour tester localement :
 
 Ainsi, nous avons vérifié que le site fonctionne correctement dans le conteneur avant le déploiement.
 
-les captures de tester  dans screenshote/
+k![test docker](screenshots/text_docker.png.png)
 
----
+k![test docker](screenshots/text_docker2.png.png)
+
+k![test docker](screenshots/text_docker3.png.png)
 
 4. Configuration de la pipeline CI/CD
 
@@ -117,9 +119,13 @@ Elle publie automatiquement le site sur GitHub Pages.
 ]
 
 
-//////////les captures de action est dans screenshote/
+//////////les captures de actions est dans screenshote/
+
+
 
 ////////////les captures de Logs est dans screenshote/
+![Logs Pipeline](screenshots/show_logs.png.png)
+![Logs Pipeline](screenshots/logs.png.png)
 
 
 pour tester  GitHub Pages entrer dans  https://brahimi-yacine.github.io/Devops-Projet/
@@ -148,8 +154,9 @@ Nous avons modifié le fichier workflow .github/workflows/deploy.yml pour utilis
 
 ////////////screenshote/
 
----
 
+
+k![permission](screenshots/master.png.png)
 3️ Branche GitHub Pages (gh-pages)
 
 Problème : Le déploiement sur GitHub Pages ne fonctionnait pas car la branche gh-pages n’était pas correctement configurée.
@@ -160,9 +167,7 @@ Solution : Nous avons créé la branche gh-pages et configuré correctement le w
 
 ---
 
-4️ Token GitHub pour Deploy
-
-Problème avec le déploiement sur GitHub Pages
+4️ Problème avec le déploiement sur GitHub Pages
 
 Erreur rencontrée :
 Lors de la tentative de déploiement du site, le workflow CI/CD affichait une erreur (signalée en rouge) et le site n’était pas publié sur GitHub Pages.
@@ -170,7 +175,10 @@ Le problème venait du fait que les permissions d’écriture et le branche de p
 
 Solution apportée :
 Lors de l’ajout de la fonctionnalité GitHub Pages, nous avons modifié le fichier workflow en ajoutant :
-
+/////////
+k![action erreur](screenshots/actionerr.png.png)
+k![logs erreur](screenshots/logs-erreur.png)
+k![erreur](screenshots/show.erreur2.png.png)
 permissions:
   contents: write
 publish_branch: gh-pages
@@ -179,7 +187,7 @@ Après cette modification, le pipeline CI/CD a affiché un succès (signalé en 
 
 ////////////screenshote/
 
-
+k![permission](screenshots/permission.png.png)
 
 \### Team Members:
 
