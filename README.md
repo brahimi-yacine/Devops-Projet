@@ -98,34 +98,44 @@ k![test docker](screenshots/test_docker3.png.png)
 
 Nous avons créé le fichier  .github/workflows/deploy.yml pour GitHub Actions.
 
-La pipeline a été divisée en 4 étapes principales :
-
-1/ Checkout code
-
-Cette étape récupère le code du dépôt sur le runner (serveur qui exécute le workflow).
-
-Ce n’est pas une étape CI/CD “traditionnelle”, c’est juste pour préparer le code.
+Ce fichier GitHub Actions exécute automatiquement plusieurs étapes dès qu’un push est effectué sur la branche master, ou lorsqu’on lance le pipeline manuellement via workflow_dispatch.
 
 
-2️/ Build Docker image
 
-C’est la phase Build réelle.
+La pipeline a été divisée en 4 étapes principales est  réalise les actions suivantes :
 
-Elle construit l’image Docker du site.
+1. Récupération du code (Checkout)
+GitHub Actions télécharge la dernière version du code pour exécuter le pipeline.
 
 
-3️/ Test website
+2. Construction de l’image Docker (Build)
+À chaque push ou exécution du pipeline, le fichier Dockerfile est reconstruit pour générer l’image devops-website.
+Cela permet de vérifier que l’application fonctionne correctement dans un conteneur.
+
+3️./ Test website
 
 C’est la phase Test.
 
 Elle vérifie que le site fonctionne dans le conteneur (même si ici c’est juste un message echo).
 
 
-4️/ Deploy to GitHub Pages
 
-C’est la phase Deploy.
+4. Déploiement automatique sur GitHub Pages (Deploy)
+Grâce à l’action peaceiris/actions-gh-pages, le contenu du projet est publié dans la branche gh-pages, ce qui met automatiquement à jour le site hébergé avec GitHub Pages.
 
-Elle publie automatiquement le site sur GitHub Pages.
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ]
 
@@ -218,12 +228,11 @@ Après cette modification, le pipeline CI/CD a affiché un succès (signalé en 
 
 # Team Members:
 
-docker + ci/cd :Mohammed Yahiaoui Mourad
+1/Mohammed Yahiaoui Mourad
 
-admin + devlopement de site : Brahimi Mohammed Yacine
+2/Brahimi Mohammed Yacine  
 
-gitlab : EL Fodda amr Khaled
-
+3/EL Fodda amr Khaled 
 
 
 
