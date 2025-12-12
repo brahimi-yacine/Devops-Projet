@@ -13,24 +13,24 @@ jobs:
     runs-on: ubuntu-latest
     
     steps:
-      # 1️⃣ Checkout code
+      # 1 Checkout code
       - name: Checkout code
         uses: actions/checkout@v3
       
-      # 2️⃣ Build Docker image
+      # 2️ Build Docker image
       - name: Build Docker image
         run: |
           docker build -t devops-website .
           echo "Docker image built successfully"
       
-      # 3️⃣ Test website
+      # 3️ Test website
       - name: Test website
         run: |
           echo "Website would work locally with: docker run -p 8080:80 devops-website"
           echo "CI/CD Pipeline is fully functional"
           echo "Dockerfile, website, and automation are ready"
       
-      # 4️⃣ Deploy to GitHub Pages
+      # 4️ Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
