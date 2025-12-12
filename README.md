@@ -167,7 +167,7 @@ Solution :
 Nous avons modifié le fichier workflow .github/workflows/deploy.yml pour utiliser master comme branche principale :
 
 
-k![permission](screenshots/master.png.png)
+permission![permission](screenshots/master.png.png)
 
 
 3️ Branche GitHub Pages (gh-pages)
@@ -187,9 +187,9 @@ Lors de la tentative de déploiement du site, le workflow CI/CD affichait une er
 Le problème venait du fait que les permissions d’écriture et le branche de publication n’étaient pas définis.
 
 
-k![action erreur](screenshots/actionerr.png.png)
+action erreur![action erreur](screenshots/actionerr.png.png)
 
-k![logs erreur](screenshots/logs_erreur.png)
+logs erreur![logs erreur](screenshots/logs_erreur.png.png)
 
 
 
