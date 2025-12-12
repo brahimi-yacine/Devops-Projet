@@ -77,11 +77,11 @@ Commandes Docker pour tester localement :
 
 Ainsi, nous avons vérifié que le site fonctionne correctement dans le conteneur avant le déploiement.
 
-k![test docker](screenshots/text_docker.png.png)
+k![test docker](screenshots/test_docker.png.png)
 
-k![test docker](screenshots/text_docker2.png.png)
+k![test docker](screenshots/test_docker2.png.png)
 
-k![test docker](screenshots/text_docker3.png.png)
+k![test docker](screenshots/test_docker3.png.png)
 
 4. Configuration de la pipeline CI/CD
 
