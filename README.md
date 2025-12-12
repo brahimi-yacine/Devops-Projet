@@ -5,7 +5,7 @@
 
 Méthode de travail étape par étape
 
-1. Initialisation du projet
+# 1. Initialisation du projet
 
 Nous avons créé un nouveau dépôt sur GitHub  pour le projet.
 
@@ -14,28 +14,39 @@ Nous avons ajouté les fichiers de base du site : index.html, style.css .
 Nous avons organisé le dépôt de manière structurée.
 
 
-Commandes Git utilisées :
-# 1 initialisation un dépôt Git local
+# Commandes Git utilisées :
+ 1. Initialiser un dépôt Git local
 git init
 
-# 2. Ajouter tous les fichiers au suivi de Git
+ 2. Ajouter tous les fichiers au suivi Git
 git add .
 
-# 3. Créer le premier commit avec un message
+ 3. Créer le premier commit
 git commit -m "Initial commit"
 
-# 4. Renommer la branche principale en 'main'
-git branch -M main
+ 4. Renommer la branche principale en 'master'
+git branch -M master
 
-# 5. Ajouter le dépôt distant (remplacez par votre URL GitHub)
+ 5. Ajouter le dépôt distant GitHub
 git remote add origin https://github.com/brahimi-yacine/Devops-Projet.git
 
-# 6. Pousser la branche 'main' vers GitHub et configurer le suivi
-git push -u origin main
+ 6. Envoyer la branche 'master' vers GitHub et configurer le suivi
+git push -u origin master
 
+ 7. Récupérer les mises à jour du dépôt distant (avant tout push)
+git pull --rebase
+
+ 8. Ajouter les nouvelles modifications
+git add -A
+
+ 9. Créer un commit pour les modifications
+git commit -m "update project"
+
+ 10. Pousser les commits vers GitHub
+git push
 ---
 
-2. Développement du site statique
+# 2. Développement du site statique
 
 Développement du site
 
@@ -58,7 +69,7 @@ Cette organisation permet un site bien structuré, facile à maintenir et à mod
 
 ---
 
-3. Containerisation avec Docker
+# 3. Containerisation avec Docker
 
 Nous avons écrit un fichier Dockerfile contenant les instructions pour construire l’image Docker du site :
 
@@ -83,11 +94,11 @@ k![test docker](screenshots/test_docker2.png.png)
 
 k![test docker](screenshots/test_docker3.png.png)
 
-4. Configuration de la pipeline CI/CD
+# 4. Configuration de la pipeline CI/CD
 
 Nous avons créé le fichier  .github/workflows/deploy.yml pour GitHub Actions.
 
-La pipeline a été divisée en trois étapes principales :
+La pipeline a été divisée en 4 étapes principales :
 
 1/ Checkout code
 
@@ -118,20 +129,23 @@ Elle publie automatiquement le site sur GitHub Pages.
 
 ]
 
+-screenshot sur Actions
 
-//////////les captures de actions est dans screenshote/
+![Action Pipeline](screenshots/actions.png.png)
 
+-screenshot sur steps
 
+![steps Pipeline](screenshots/show_steps.png.png)
 
-////////////les captures de Logs est dans screenshote/
-![Logs Pipeline](screenshots/show_logs.png.png)
+-screenshot sur logs
+
 ![Logs Pipeline](screenshots/logs.png.png)
 
 
 pour tester  GitHub Pages entrer dans  https://brahimi-yacine.github.io/Devops-Projet/
 ---------------------------------------------------------------------------------------------------------------------
 ----------------------------------------------------------------------------------------------------------------
--Difficultés rencontrées et solutions apportées
+# -Difficultés rencontrées et solutions apportées
 
 1️ Projet privé
 
@@ -152,11 +166,10 @@ Cela causait des erreurs lors des push et empêchait le pipeline de se déclench
 Solution :
 Nous avons modifié le fichier workflow .github/workflows/deploy.yml pour utiliser master comme branche principale :
 
-////////////screenshote/
-
-
 
 k![permission](screenshots/master.png.png)
+
+
 3️ Branche GitHub Pages (gh-pages)
 
 Problème : Le déploiement sur GitHub Pages ne fonctionnait pas car la branche gh-pages n’était pas correctement configurée.
@@ -173,23 +186,36 @@ Erreur rencontrée :
 Lors de la tentative de déploiement du site, le workflow CI/CD affichait une erreur (signalée en rouge) et le site n’était pas publié sur GitHub Pages.
 Le problème venait du fait que les permissions d’écriture et le branche de publication n’étaient pas définis.
 
+
+k![action erreur](screenshots/actionerr.png.png)
+
+k![logs erreur](screenshots/logs_erreur.png)
+
+
+
+
+
 Solution apportée :
 Lors de l’ajout de la fonctionnalité GitHub Pages, nous avons modifié le fichier workflow en ajoutant :
-/////////
-k![action erreur](screenshots/actionerr.png.png)
-k![logs erreur](screenshots/logs-erreur.png)
-k![erreur](screenshots/show.erreur2.png.png)
+
 permissions:
   contents: write
 publish_branch: gh-pages
 
-Après cette modification, le pipeline CI/CD a affiché un succès (signalé en vert) 
-
-////////////screenshote/
-
 k![permission](screenshots/permission.png.png)
 
-\### Team Members:
+
+ 
+
+
+
+Après cette modification, le pipeline CI/CD a affiché un succès (signalé en vert) 
+
+
+
+
+
+# Team Members:
 
 docker + ci/cd :Mohammed Yahiaoui Mourad
 
