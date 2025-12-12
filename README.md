@@ -15,24 +15,6 @@ Nous avons organisé le dépôt de manière structurée.
 
 
 Commandes Git utilisées :
-# 1. Initialiser le dépôt Git local
-git init
-
-# 2. Ajouter tous les fichiers au suivi Git
-git add .
-
-# 3. Créer le premier commit
-git commit -m "Initial commit"
-
-# 4. Renommer la branche principale en 'main'
-git branch -M main
-
-# 5. Ajouter le dépôt distant (remplacer par l'URL HTTPS correcte)
-git remote add origin https://github.com/brahimi-yacine/Devops-Projet.git
-
-# 6. Pousser la branche 'main' vers GitHub et configurer le suivi
-git push -u origin main
-
 
 
 ---
