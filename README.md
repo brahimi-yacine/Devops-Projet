@@ -189,7 +189,8 @@ Le problème venait du fait que les permissions d’écriture et le branche de p
 
 action erreur![action erreur](screenshots/actionerr.png.png)
 
-logs erreur![logs erreur](screenshots/logs_erreur.png.png)
+logs erreur![logs erreur](screenshots/logs_erreur,.png.png)
+
 
 
 
