@@ -130,11 +130,14 @@ Cette étape permet de mettre à jour le site web hébergé sur GitHub Pages de 
 
 -screenshot sur steps
 
-![steps Pipeline](screenshots/show_steps.png.png)
+![steps Pipeline](screenshots/show_steps.png.png.png)
 
 -screenshot sur logs
 
-![Logs Pipeline](screenshots/logs.png.png)
+![Logs Pipeline](screenshots/logs1.png.png)
+![Logs Pipeline](screenshots/logs2.png.png)
+![Logs Pipeline](screenshots/logs3.png.png)
+![Logs Pipeline](screenshots/logs4.png.png)
 
 
 pour tester  GitHub Pages entrer dans  https://brahimi-yacine.github.io/Devops-Projet/
