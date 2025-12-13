@@ -94,48 +94,33 @@ k![test docker](screenshots/test_docker2.png.png)
 
 k![test docker](screenshots/test_docker3.png.png)
 
+
 # 4. Configuration de la pipeline CI/CD
 
-Nous avons créé le fichier  .github/workflows/deploy.yml pour GitHub Actions.
+Nous avons créé le fichier .github/workflows/deploy.yml en utilisant GitHub Actions afin d’automatiser les différentes étapes du cycle DevOps.
 
-Ce fichier GitHub Actions exécute automatiquement plusieurs étapes dès qu’un push est effectué sur la branche master, ou lorsqu’on lance le pipeline manuellement via workflow_dispatch.
+Ce workflow s’exécute automatiquement à chaque push sur la branche master, ou manuellement grâce à l’événement workflow_dispatch.
 
-
-
-La pipeline a été divisée en 4 étapes principales est  réalise les actions suivantes :
+La pipeline est divisée en 4 étapes principales et réalise les actions suivantes :
 
 1. Récupération du code (Checkout)
-GitHub Actions télécharge la dernière version du code pour exécuter le pipeline.
 
+GitHub Actions récupère la dernière version du code source depuis le dépôt afin de l’utiliser dans les différentes étapes de la pipeline.
 
 2. Construction de l’image Docker (Build)
-À chaque push ou exécution du pipeline, le fichier Dockerfile est reconstruit pour générer l’image devops-website.
-Cela permet de vérifier que l’application fonctionne correctement dans un conteneur.
 
-3️./ Test website
+À chaque exécution de la pipeline, le fichier Dockerfile est utilisé pour construire une image Docker nommée devops-website.
+Cette étape permet de s’assurer que l’application peut être correctement containerisée et exécutée dans un environnement isolé.
 
-C’est la phase Test.
+3. Test du site web (Test)
 
-Elle vérifie que le site fonctionne dans le conteneur (même si ici c’est juste un message echo).
-
-
+Cette étape consiste à lancer un conteneur Docker à partir de l’image créée, puis à vérifier le bon fonctionnement du site web à l’aide d’une requête HTTP (curl).
+Si le site ne répond pas correctement, la pipeline échoue automatiquement, ce qui garantit un test réel avant le déploiement.
 
 4. Déploiement automatique sur GitHub Pages (Deploy)
-Grâce à l’action peaceiris/actions-gh-pages, le contenu du projet est publié dans la branche gh-pages, ce qui met automatiquement à jour le site hébergé avec GitHub Pages.
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+Grâce à l’action peaceiris/actions-gh-pages, le contenu du projet est automatiquement déployé dans la branche gh-pages.
+Cette étape permet de mettre à jour le site web hébergé sur GitHub Pages de manière continue et automatisée après chaque modification validée.
 
 ]
 
